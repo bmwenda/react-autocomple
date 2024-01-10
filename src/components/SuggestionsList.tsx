@@ -2,7 +2,19 @@ import React from 'react';
 import '../styles/SuggestionsList.css';
 import ListItem from './ListItem';
 
-const SuggestionsList = ({ suggestions, showSuggestions, handleClick, searchTerm }) => {
+interface APIData {
+  API: string,
+  Link: string
+}
+
+interface SuggestionsListProps {
+  suggestions: APIData[],
+  showSuggestions: boolean,
+  handleClick: (value: string) => void,
+  searchTerm: string
+}
+
+const SuggestionsList = ({ suggestions, showSuggestions, handleClick, searchTerm }: SuggestionsListProps) => {
   return (
     showSuggestions && (
       <ul className='suggestions-list'>

@@ -22,22 +22,22 @@ const AutoComplete = () => {
   }, [value]);
 
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
+  const handleChange = (event: any) => {
+    setValue(event.currentTarget.value);
   }
 
   const handleFocus = () => {
     setShowSuggestions(true);
   }
 
-  const handleClick = (suggestion) => {
+  const handleClick = (suggestion: string) => {
     setValue(suggestion);
     setShowSuggestions(!showSuggestions);
   }
 
-  const handleInputClick = () => {
-    setShowSuggestions(!showSuggestions);
-  }
+  // const handleInputClick = () => {
+  //   setShowSuggestions(!showSuggestions);
+  // }
 
   return (
     <div className='search-box'>

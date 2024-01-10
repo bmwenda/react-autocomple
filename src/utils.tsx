@@ -1,6 +1,6 @@
 const BASE_URL = 'https://api.publicapis.org/entries';
 
-export const fetchPublicApis = async (searchTerm) => {
+export const fetchPublicApis = async (searchTerm: string) => {
   let url = BASE_URL;
 
   try {
@@ -9,9 +9,8 @@ export const fetchPublicApis = async (searchTerm) => {
     }
     const response = await fetch(url);
     const data = await response.json();
-    // console.log(data.entries)
     return data;
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error.message)
   }
 }

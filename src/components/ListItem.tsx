@@ -18,7 +18,7 @@ const ListItem = ({ suggestion, handleClick, searchTerm }: ListItemProps) => {
   const matching: RegExpMatchArray | null = title.match(regex);
   const highlightedTitle = matching ? title.replace(regex, `<mark>${matching[0]}</mark>`) : title;
   return (
-    <li key={suggestion.Link} onClick={() => handleClick(suggestion.API)}>
+    <li onClick={() => handleClick(suggestion.API)}>
        <div dangerouslySetInnerHTML={{ __html: highlightedTitle }} />
     </li>
   )

@@ -18,8 +18,8 @@ const SuggestionsList = ({ suggestions, showSuggestions, handleClick, searchTerm
   return (
     showSuggestions && (
       <ul className='suggestions-list'>
-        {suggestions?.map((suggestion) => (
-          <ListItem suggestion={suggestion} handleClick={handleClick} searchTerm={searchTerm} />
+        {suggestions?.map((suggestion, idx) => (
+          <ListItem key={`${suggestion.Link}-${idx}`} suggestion={suggestion} handleClick={handleClick} searchTerm={searchTerm} />
         ))}
       </ul>
     )

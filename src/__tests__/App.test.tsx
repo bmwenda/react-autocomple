@@ -1,8 +1,36 @@
-import { render, screen } from '@testing-library/react';
-import App from '../components/App.js';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import App from '../components/App.tsx';
 
-test('renders learn react link', () => {
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({
+      entries: [
+        {
+          API: 'name of api',
+          Description: 'description'
+        }
+      ]
+    }),
+  })
+);
+
+test('renders correctly', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const header = screen.getByText(/Search Public APIs/i);
+  const searchBox = screen.getByPlaceholderText(/Search/i);
+
+  expect(header).toBeInTheDocument();
+  expect(searchBox).toBeInTheDocument();
+});
+
+test('selects user input', async () => {
+  render(<App />);
+
+  const searchBox = screen.getByPlaceholderText(/Search/i);
+  fireEvent.click(searchBox);
+
+  await waitFor(() => {
+    expect(screen.getByText(/name of api/i)).toBeInTheDocument();
+  })
 });

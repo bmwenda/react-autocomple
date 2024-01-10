@@ -1,6 +1,6 @@
-.suggestions-list {
+.suggestions-container {
 	list-style: none;
-	margin-left: -1rem;
+	min-width: 50vw;
 }
 
 li {

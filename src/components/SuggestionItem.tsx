@@ -1,17 +1,16 @@
-import React from 'react';
 
 interface APIData {
   API: string,
   Link: string
 }
 
-interface ListItemProps {
+interface SuggestionItemProps {
   suggestion: APIData,
   handleClick: (value: string) => void,
   searchTerm: string
 }
 
-const ListItem = ({ suggestion, handleClick, searchTerm }: ListItemProps) => {
+const SuggestionItem = ({ suggestion, handleClick, searchTerm }: SuggestionItemProps) => {
   // TODO: Avoid manipulating the DOM with innerHTML
   const {API: title} = suggestion;
   const regex = new RegExp(`${searchTerm}`, 'gi');
@@ -24,4 +23,4 @@ const ListItem = ({ suggestion, handleClick, searchTerm }: ListItemProps) => {
   )
 }
 
-export default ListItem;
+export default SuggestionItem;

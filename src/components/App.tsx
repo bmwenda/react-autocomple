@@ -1,5 +1,5 @@
 import '../styles/App.css';
-import { BASE_URL } from '../utils';
+import { BASE_URL } from '../constants';
 import AutoComplete from './AutoComplete';
 
 function App() {

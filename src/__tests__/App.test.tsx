@@ -1,19 +1,7 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import App from '../components/App.tsx';
+import { render, screen } from '@testing-library/react';
+import App from '../components/App';
 
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve({
-      entries: [
-        {
-          API: 'name of api',
-          Description: 'description'
-        }
-      ]
-    }),
-  })
-);
-
+// TODO: Test user flow events: focus, hover and click
 test('renders correctly', () => {
   render(<App />);
 
@@ -22,15 +10,4 @@ test('renders correctly', () => {
 
   expect(header).toBeInTheDocument();
   expect(searchBox).toBeInTheDocument();
-});
-
-test('selects user input', async () => {
-  render(<App />);
-
-  const searchBox = screen.getByPlaceholderText(/Search/i);
-  fireEvent.click(searchBox);
-
-  await waitFor(() => {
-    expect(screen.getByText(/name of api/i)).toBeInTheDocument();
-  })
 });

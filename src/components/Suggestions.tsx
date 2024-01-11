@@ -6,8 +6,10 @@ interface APIData {
   Link: string
 }
 
+// The external API returns a function immediately before loading is complete
+// Using a union with any to get around this issue
 interface SuggestionsProps {
-  suggestions: APIData[],
+  suggestions: APIData[]| any,
   handleClick: (value: string) => void,
   searchTerm: string
 }
@@ -18,7 +20,7 @@ const Suggestions = ({ suggestions, searchTerm, handleClick }: SuggestionsProps)
   }
   return (
     <ul className='suggestions-container'>
-      {suggestions?.map((suggestion, idx) => (
+      {suggestions?.map((suggestion: APIData, idx: number) => (
         <SuggestionItem
           key={`${suggestion.Link}-${idx}`}
           suggestion={suggestion}

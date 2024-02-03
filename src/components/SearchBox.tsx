@@ -1,10 +1,5 @@
 import { ChangeEvent } from 'react';
-
-interface SearchBoxProps {
-  value: string,
-  setValue: (value: string) => void,
-  handleFocus: (event: ChangeEvent<HTMLInputElement>) => void
-}
+import { SearchBoxProps } from '../types';
 
 const SearchBox = ({value, setValue, handleFocus}: SearchBoxProps) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

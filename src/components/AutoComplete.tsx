@@ -3,12 +3,8 @@ import Suggestions from './Suggestions';
 import SearchBox from './SearchBox';
 import useFetch from '../hooks/useFetch';
 import useDebounce from '../hooks/useDebounce';
-
-const DEBOUNCE_RATE = 750;
-
-interface AutoCompleteProps {
-  url: string
-}
+import { AutoCompleteProps } from '../types';
+import { DEBOUNCE_RATE } from '../constants';
 
 const AutoComplete = ({url}: AutoCompleteProps) => {
   const [value, setValue] = useState('');

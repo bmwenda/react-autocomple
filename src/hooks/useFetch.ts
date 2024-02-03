@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react';
-
-interface useFetchProps {
-  url: string
-}
+import { useFetchProps } from '../types';
 
 const useFetch = ({url}: useFetchProps) => {
   const [data, setData] = useState([]);

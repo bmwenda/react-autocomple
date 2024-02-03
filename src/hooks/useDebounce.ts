@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
-
-interface useDebounceProps {
-    value: string,
-    debounceRate: number
-}
+import { useDebounceProps } from '../types';
 
 const useDebounce = ({value, debounceRate}: useDebounceProps) => {
   const [searchTerm, setSearchTerm] = useState('');

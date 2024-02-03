@@ -1,15 +1,5 @@
+import { SuggestionItemProps } from "../types";
 import { sanitizeString } from "../utils";
-
-interface APIData {
-  API: string,
-  Link: string
-}
-
-interface SuggestionItemProps {
-  suggestion: APIData,
-  handleClick: (value: string) => void,
-  searchTerm: string
-}
 
 const SuggestionItem = ({ suggestion, handleClick, searchTerm }: SuggestionItemProps) => {
   const {API: title} = suggestion;

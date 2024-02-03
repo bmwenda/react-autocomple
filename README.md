@@ -1,6 +1,9 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/43c348b6-1e73-404e-9af1-a0ad4504c864/deploy-status)](https://app.netlify.com/sites/fastidious-truffle-68702d/deploys)
+
 # React Autocomplete
 
 This is a simple, bare bones autocomplete component. It populates data from [Public APIs](https://api.publicapis.org/).
+Visit the [live site](https://fastidious-truffle-68702d.netlify.app) to see it in action.
 
 ## Installation and local development
 

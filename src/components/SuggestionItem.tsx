@@ -1,9 +1,8 @@
 import { SuggestionItemProps } from "../types";
 import { sanitizeString } from "../utils";
 
-const SuggestionItem = ({ suggestion, handleClick, searchTerm }: SuggestionItemProps) => {
+const SuggestionItem = ({ suggestion, regex, handleClick }: SuggestionItemProps) => {
   const {API: title} = suggestion;
-  const regex = new RegExp(`${searchTerm}`, 'gi');
   const matching: RegExpMatchArray | null = title.match(regex);
   const escapedText = sanitizeString(title);
   const highlightedTitle = matching ? escapedText.replace(regex, `<mark>${matching[0]}</mark>`) : escapedText;

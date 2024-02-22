@@ -18,7 +18,7 @@ export interface SuggestionsProps {
 export interface SuggestionItemProps {
   suggestion: APIData,
   handleClick: (value: string) => void,
-  searchTerm: string
+  regex: RegExp
 }
 
 export interface SearchBoxProps {

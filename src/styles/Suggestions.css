@@ -1,4 +1,5 @@
 .suggestions-container {
+	margin-top: 0;
 	list-style: none;
 	min-width: 50vw;
 }

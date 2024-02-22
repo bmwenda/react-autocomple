@@ -11,7 +11,7 @@ const AutoComplete = ({url}: AutoCompleteProps) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const query = useDebounce({value, debounceRate: DEBOUNCE_RATE});
 
-  const { data: { entries: sourceData }, error } = useFetch({ url: `${url}${query}` });
+  const { data: { entries: sourceData }, loading, error } = useFetch({ url: `${url}${query}` });
 
   const handleFocus = () => {
     setShowSuggestions(true);
@@ -26,7 +26,7 @@ const AutoComplete = ({url}: AutoCompleteProps) => {
     <>
       <SearchBox value={value} setValue={setValue} handleFocus={handleFocus} />
       {error ? (<div>An error occured while fetching</div>) : (
-        showSuggestions && (
+        !loading && showSuggestions && (
           <Suggestions
             suggestions={sourceData}
             searchTerm={value}

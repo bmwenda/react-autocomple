@@ -10,12 +10,13 @@ const useFetch = ({url}: useFetchProps) => {
     setLoading(true);
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
+        const fullPath = new URL(url);
+        const response = await fetch(fullPath.href);
         const data = await response.json();
         setData(data);
-        setLoading(false);
       } catch (error: any) {
         setError(error);
+      } finally {
         setLoading(false);
       }
     }

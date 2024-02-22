@@ -25,6 +25,10 @@ button {
 	font-weight: bolder;
 }
 
+button:hover {
+	cursor: pointer;
+}
+
 mark {
 	background-color: #90ee90;
 }

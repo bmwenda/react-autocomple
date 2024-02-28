@@ -1,8 +1,12 @@
+// @ts-nocheck
+import { forwardRef } from 'react';
 import '../styles/Suggestions.css';
 import { APIData, SuggestionsProps } from '../types';
 import SuggestionItem from './SuggestionItem';
 
-const Suggestions = ({ suggestions, searchTerm, handleClick }: SuggestionsProps) => {
+const Suggestions = forwardRef<HTMLElement, SuggestionsProps>(function Suggestions(props, ref) {
+  const {suggestions, handleClick, searchTerm} = props;
+
   if (!suggestions) {
     return <div>No results...</div>
   }
@@ -15,7 +19,7 @@ const Suggestions = ({ suggestions, searchTerm, handleClick }: SuggestionsProps)
   }
 
   return (
-    <ul className='suggestions-container'>
+    <ul className='suggestions-container' ref={ref}>
       {suggestions?.map((suggestion: APIData, idx: number) => (
         <SuggestionItem
           key={`${suggestion.Link}-${idx}`}
@@ -26,6 +30,6 @@ const Suggestions = ({ suggestions, searchTerm, handleClick }: SuggestionsProps)
       ))}
     </ul>
   );
-};
+});
 
 export default Suggestions;

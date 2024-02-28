@@ -1,10 +1,9 @@
-// @ts-nocheck
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import '../styles/Suggestions.css';
 import { APIData, SuggestionsProps } from '../types';
 import SuggestionItem from './SuggestionItem';
 
-const Suggestions = forwardRef<HTMLElement, SuggestionsProps>(function Suggestions(props, ref) {
+const Suggestions = forwardRef((props: SuggestionsProps, ref: React.Ref<HTMLUListElement>) => {
   const {suggestions, handleClick, searchTerm} = props;
 
   if (!suggestions) {

@@ -12,7 +12,7 @@ const AutoComplete = ({url}: AutoCompleteProps) => {
   const query = useDebounce({value, debounceRate: DEBOUNCE_RATE});
 
   const { data: { entries: sourceData }, loading, error } = useFetch({ url: `${url}${query}` });
-  const suggestionsRef = useRef<HTMLElement | null>(null);
+  const suggestionsRef = useRef<HTMLUListElement>(null);
 
   useEffect(()=> {
     const clickAwayListener = (event: MouseEvent) => {

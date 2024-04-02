@@ -19,5 +19,5 @@ After the server has started, navigate to the browser on [http://localhost:3000]
 
 ## Improvements
 Coming soon!
-- [ ] - hide suggestions on click away
-- [ ] - cache results
+- [x] hide suggestions on click away
+- [ ] cache results
